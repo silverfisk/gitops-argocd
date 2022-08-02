@@ -57,7 +57,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     acme.cert-manager.io/http01-edit-in-place: "true"
   name: nginx
-  namespace: linux-konsult
+  namespace: default
 spec:
   rules:
   - host: k8s.linux-konsult.com
