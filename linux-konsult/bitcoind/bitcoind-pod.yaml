@@ -6,16 +6,6 @@ metadata:
     io.kompose.service: bitcoind
   name: bitcoind
 spec:
-  initContainers:
-  - name: podprep
-    image: busybox
-    command:
-    - mkdir -p /data/.bitcoin
-    - touch /workdir/.bitcoin/settings.json.tmp
-    - chmod -R 777 /data/.bitcoin
-    volumeMounts:
-    - mountPath: /data/.bitcoin
-      name: bitcoind-claim0
   containers:
   - image: lncm/bitcoind:v23.0
     name: bitcoind
@@ -25,10 +15,10 @@ spec:
     resources: {}
     volumeMounts:
     - mountPath: /data/.bitcoin
-      name: bitcoind-claim0
+      name: bitcoind-vol0
   restartPolicy: OnFailure
   volumes:
-  - name: bitcoind-claim0
+  - name: bitcoind-vol0
     persistentVolumeClaim:
       claimName: bitcoind-claim0
 status: {}

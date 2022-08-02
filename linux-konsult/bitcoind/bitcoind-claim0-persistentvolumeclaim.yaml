@@ -1,15 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  creationTimestamp: null
-  labels:
-    io.kompose.service: bitcoind-claim0
   name: bitcoind-claim0
 spec:
-  storageClassName: longhorn
+  storageClassName: btc-longhorn-noreplicas
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
       storage: 500Gi
-status: {}
