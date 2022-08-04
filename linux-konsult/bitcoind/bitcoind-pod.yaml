@@ -16,6 +16,19 @@ spec:
     volumeMounts:
     - mountPath: /data
       name: bitcoind-vol0
+  - image: getumbrel/btc-rpc-explorer
+    name: btc-rpc-explorer
+    ports:
+    - containerPort: 3002
+    env:
+    - name: BTCEXP_BITCOIND_HOST
+      value: bitcoind
+    - name: BTCEXP_BITCOIND_PORT
+      value: 8333
+    - name: BTCEXP_BASEURL
+      value: "/btc-explorer/"
+    - name: BTCEXP_PORT
+      value: 3002
   restartPolicy: OnFailure
   volumes:
   - name: bitcoind-vol0

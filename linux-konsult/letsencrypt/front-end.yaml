@@ -60,6 +60,13 @@ spec:
             name: nginx
             port:
               number: 80
+      - path: /btc-explorer/
+        pathType: Prefix
+        backend:
+          service:
+            name: btc-rpc-explorer
+            port:
+              number: 3002
   tls:
   - hosts:
     - k8s.linux-konsult.com
