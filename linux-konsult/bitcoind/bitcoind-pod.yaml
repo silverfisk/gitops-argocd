@@ -16,7 +16,7 @@ spec:
     volumeMounts:
     - mountPath: /data
       name: bitcoind-vol0
-  - image: getumbrel/btc-rpc-explorer
+  - image: getumbrel/btc-rpc-explorer:v3.3.0
     name: btc-rpc-explorer
     ports:
     - containerPort: 3002
